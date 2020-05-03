@@ -20,11 +20,14 @@ function isAllTrue(array, fn) {
     let arra = false;
     let x = 0;
 
-    if (Array.isArray(array) !== true || (array.length < 1)) {
-        throw new Error('#1 - empty array')
+    if (array.length < 1) {
+        throw new Error('empty array')
+    }
+    if ( !(array instanceof Array) ) {
+        throw new Error('empty array');
     }
     if (typeof fn !== 'function') {
-        throw new Error('#1 - fn is not a function')
+        throw new Error('fn is not a function')
     }
     for (let i = 0; i < array.length; i++) {
         if (fn(array[i]) === true) {
@@ -58,7 +61,10 @@ function isSomeTrue(array, fn) {
     let x = false;
     let y = 0;
 
-    if ((array.length < 1) || (Array.isArray(array) !== true)) {
+    if (array.length < 1) {
+        throw new Error('empty array');
+    }
+    if ( !(array instanceof Array) ) {
         throw new Error('empty array');
     }
     if (typeof fn !== 'function') {
