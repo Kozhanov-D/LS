@@ -56,7 +56,6 @@ function addListeners(target) {
             shiftY = e.pageY - coords.top;
 
         target.style.position = 'absolute';
-        //homeworkContainer.appendChild(target);
         moveAt(e);
         target.style.zIndex = 1000;
 
@@ -77,7 +76,8 @@ function addListeners(target) {
         };
 
         function getCoords(elem) {
-            var box = elem.getBoundingClientRect();
+            let box = elem.getBoundingClientRect();
+
             return {
                 top: box.top + pageYOffset,
                 left: box.left + pageXOffset
