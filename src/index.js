@@ -12,7 +12,9 @@
  */
 function createDivWithText(text) {
     let div = document.createElement('div');
+
     div.innerText = text;
+
     return div;
 }
 
@@ -25,6 +27,7 @@ function createDivWithText(text) {
    prepend(document.querySelector('#one'), document.querySelector('#two')) // добавит элемент переданный первым аргументом в начало элемента переданного вторым аргументом
  */
 function prepend(what, where) {
+
     return where.prepend(what);
 }
 
@@ -76,7 +79,7 @@ function findAllPSiblings(where) {
    findError(document.body) // функция должна вернуть массив с элементами 'привет' и 'loftschool'
  */
 function findError(where) {
-    var result = [];
+    let result = [];
 
     for (var child of where.children) {
         result.push(child.innerText);
@@ -99,6 +102,7 @@ function findError(where) {
  */
 function deleteTextNodes(where) {
     let allNodes = where.childNodes;
+
     for (let i = 0; i < allNodes.length; i++) {
         if (allNodes[i].nodeType === 3) {
             where.removeChild(allNodes[i])
@@ -120,6 +124,7 @@ function deleteTextNodes(where) {
 function deleteTextNodesRecursive(where) {
     let allNodes = where.childNodes;
     let a = 0;
+
     for (let i = 0; i < allNodes.length; i = a) {
         if (allNodes[i].nodeType === 3) {
             where.removeChild(allNodes[i]);
