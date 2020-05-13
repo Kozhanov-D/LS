@@ -59,10 +59,10 @@ function loadTowns() {
                     return -1;
                 }
 
-        }))
+            }))
 
+        })
     })
-})
 }
 
 /*
@@ -95,6 +95,7 @@ const filterInput = homeworkContainer.querySelector('#filter-input');
 /* Блок с результатами поиска */
 const filterResult = homeworkContainer.querySelector('#filter-result');
 let cities =[];
+
 loadTowns()
     .then(res => {
         cities = res;
