@@ -68,7 +68,7 @@ function showCookie() {
 
     listTable.innerHTML = '';
     for (let item in cookie) {
-        if ((isMatching(item, filterNameInput.value)) || (isMatching(item, filterNameInput.value))) {
+        if ((isMatching(item, filterNameInput.value)) || (isMatching(cookie[item], filterNameInput.value))) {
             listTable.innerHTML += `<tr class="${item}"><td>${item}</td><td>${cookie[item]}</td><td id="del"><button id="del-button" class="${item}">Delete cookie</button></td></tr>`;
         } if (!item) {
             listTable.innerHTML = '';
