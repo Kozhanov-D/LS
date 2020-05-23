@@ -28,25 +28,25 @@ module.exports = {
     },
     devtool: 'source-map',
     module: { rules },
+    optimization: {
+        minimizer: [
+            new UglifyJsPlugin({
+                cache: true,
+                parallel: true,
+                uglifyOptions: {
+                    compress: false,
+                    ecma: 6,
+                    mangle: true
+                },
+                sourceMap: true
+            })
+        ]
+    },
     plugins: [
-        new webpack.optimize.UglifyJsPlugin({
-            sourceMap: true,
-            compress: {
-                drop_debugger: false,
-                warnings: false
-            }
-        }),
         new ExtractTextPlugin('styles.css'),
         new HtmlPlugin({
             title: 'Main Homework',
-            template: 'main.hbs',
-            chunks: ['main']
-        }),
-        new HtmlPlugin({
-            title: 'Div Drag And Drop',
-            template: 'dnd.hbs',
-            filename: 'dnd.html',
-            chunks: ['dnd']
+            template: 'index.hbs'
         }),
         new CleanWebpackPlugin(['dist'])
     ]
